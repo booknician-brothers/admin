@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Bestsellerwiseaddbookpage"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Book Details"
+                    android:textAlignment="center"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="40dp" />
+
+
+                <EditText
+                    android:id="@+id/genre_book_name_bs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_white"
+                    android:hint="Book Name"
+                    android:layout_marginHorizontal="30dp"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="30sp"/>
+
+                <EditText
+                    android:id="@+id/genre_author_name_bs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/rounded_white"
+                    android:hint="Author "
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="30sp"/>
+
+                <EditText
+                    android:id="@+id/genre_book_image_bs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_white"
+                    android:hint="Image"
+                    android:layout_marginHorizontal="30dp"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="30sp"/>
+
+                <EditText
+                    android:id="@+id/genre_book_price_bs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/rounded_white"
+                    android:hint="Book Price"
+                    android:inputType="numberDecimal"
+                    android:textAlignment="center"
+                    android:textSize="30sp"/>
+
+                <EditText
+                    android:id="@+id/genre_daily_price_bs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/rounded_white"
+                    android:hint="Per Day Rate"
+                    android:inputType="numberDecimal"
+                    android:textAlignment="center"
+                    android:textSize="30sp"/>
+
+                <EditText
+                    android:id="@+id/genre_fix_price_bs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/rounded_white"
+                    android:hint="Default Rate"
+                    android:inputType="numberDecimal"
+                    android:textAlignment="center"
+                    android:textSize="30sp"/>
+
+                <EditText
+                    android:id="@+id/genre_book_stock_bs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/rounded_white"
+                    android:hint="In Stock"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textSize="30sp"/>
+
+                <EditText
+                    android:id="@+id/genre_book_description_bs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/rounded_white"
+                    android:hint="Description"
+                    android:inputType="text"
+                    android:textSize="30sp"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/genre_add_btn_bs"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:background="@android:color/transparent"
+                    android:text="ADD"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="36sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

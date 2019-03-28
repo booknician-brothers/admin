@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Bookwise">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="35dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please Select Type"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/aladin"
+            android:textSize="50dp"
+            android:textColor="#ffffff"/>
+
+        <Button
+            android:id="@+id/genre_typ_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="@font/aref_ruqaa_bold"
+            android:text="By Genres"
+            android:textColor="#ffffff"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/bestseller_typ_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="@font/aref_ruqaa_bold"
+            android:text="Best Sellers"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/bookbyauthor_typ_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="@font/aref_ruqaa_bold"
+            android:text="Boook by author"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
