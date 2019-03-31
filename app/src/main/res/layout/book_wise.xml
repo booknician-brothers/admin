@@ -58,7 +58,7 @@
             android:layout_marginBottom="10dp"
             android:backgroundTint="@android:color/transparent"
             android:fontFamily="@font/aref_ruqaa_bold"
-            android:text="Boook by author"
+            android:text="Author name"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="40sp" />
 

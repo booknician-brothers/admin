@@ -134,6 +134,7 @@
                     android:layout_marginTop="25dp"
                     android:background="@android:color/transparent"
                     android:text="ADD"
+                    android:layout_marginBottom="20dp"
                     android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="36sp" />
 

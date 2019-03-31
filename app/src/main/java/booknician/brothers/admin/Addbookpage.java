@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,15 +24,22 @@ public class Addbookpage extends AppCompatActivity {
 
     Button  genre_add_btn;
 
+    CheckBox checkBox;
+
     final FirebaseDatabase database =  FirebaseDatabase.getInstance();
 
     DatabaseReference Myref = database.getReference();
 
     DatabaseReference Myrefbook = database.getReference();
 
+    DatabaseReference Myrefbook_authwise = database.getReference();
+
+    DatabaseReference Myrefbestseller = database.getReference();
+
+
     String genrebookdescription, genrebookname, genreauthorname, genrebookstock, genredailyprice, genrefixprice, genrebookprice, genrebookimage;
 
-    public int d=0, book_count=0;
+    public int d, auth_count,bs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +55,10 @@ public class Addbookpage extends AppCompatActivity {
         genre_book_price=findViewById(R.id.genre_book_price);
         genre_book_description=findViewById(R.id.genre_book_description);
 
+        checkBox=findViewById(R.id.checkbox);
+
         genre_add_btn=findViewById(R.id.genre_add_btn);
+
 
 
 
@@ -85,6 +97,81 @@ public class Addbookpage extends AppCompatActivity {
                 genrebookprice= genre_book_price.getText().toString();
                 genrebookimage= genre_book_image.getText().toString();
 
+                if(checkBox.isChecked())
+                {
+                    DatabaseReference fbDb_bs = null;
+                    if (fbDb_bs == null) {
+                        fbDb_bs = FirebaseDatabase.getInstance().getReference();
+                    }
+
+
+                    fbDb_bs.child("Best Seller")
+                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    bs= (int) dataSnapshot.getChildrenCount();
+
+                                    bs = bs+1;
+
+                                    Myrefbestseller  = FirebaseDatabase.getInstance().getReference().child("Best Seller").child(String.valueOf(bs));
+
+                                    Map saveData_bestseller = new HashMap();
+                                    {
+
+                                        saveData_bestseller.put("name", genrebookname);
+                                        saveData_bestseller.put("image", genrebookimage);
+
+
+                                    }
+
+                                    Myrefbestseller.setValue(saveData_bestseller);
+                                }
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+                }
+
+
+
+                DatabaseReference fbDb_authbook = null;
+                if (fbDb_authbook == null) {
+                    fbDb_authbook = FirebaseDatabase.getInstance().getReference().child("Book author wise");
+                }
+
+
+                fbDb_authbook.child(genreauthorname)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                auth_count = (int) dataSnapshot.getChildrenCount();
+
+                                auth_count++;
+
+                                Myrefbook_authwise= FirebaseDatabase.getInstance().getReference().child("Book author wise").child(genreauthorname).child(String.valueOf(auth_count));
+
+                                Map saveData_book_auth = new HashMap();
+                                {
+
+                                    saveData_book_auth.put("name", genrebookname);
+                                    saveData_book_auth.put("image", genrebookimage);
+
+
+                                }
+
+
+                                Myrefbook_authwise.setValue(saveData_book_auth);
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
+
                 d=d+1;
 
                 Myref  = FirebaseDatabase.getInstance().getReference().child("Genre").child(Genrelist.genre_type_name).child(String.valueOf(d));
@@ -101,6 +188,7 @@ public class Addbookpage extends AppCompatActivity {
                 Myref.setValue(saveData);
 
 
+
                 Myrefbook= FirebaseDatabase.getInstance().getReference().child("Books").child(genrebookname);
 
                 Map saveData_book = new HashMap();
@@ -111,13 +199,14 @@ public class Addbookpage extends AppCompatActivity {
                     saveData_book.put("Fix Price", genrefixprice);
                     saveData_book.put("Description", genrebookdescription);
                     saveData_book.put("Book In Stock", genrebookstock);
+                    saveData_book.put("name", genrebookname);
+                    saveData_book.put("image", genrebookimage);
 
 
                 }
 
 
                 Myrefbook.setValue(saveData_book);
-
 
 
                 Intent intent = new Intent(Addbookpage.this, Genrelist.class);

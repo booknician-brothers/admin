@@ -108,6 +108,8 @@ public class Bestsellerwiseaddbookpage extends AppCompatActivity {
                     saveData_book.put("Fix Price", genrefixprice);
                     saveData_book.put("Description", genrebookdescription);
                     saveData_book.put("Book In Stock", genrebookstock);
+                    saveData_book.put("name", genrebookname);
+                    saveData_book.put("image", genrebookimage);
 
 
                 }
